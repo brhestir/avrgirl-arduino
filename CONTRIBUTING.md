@@ -2,7 +2,7 @@
 
 Thank you for your interest in contributing to the avrgirl project to make it even better!
 
-Not sure where to start? Check out the currently filed issues to see if there's anything there you'd like to work on. 
+Not sure where to start? Check out the currently filed issues to see if there's anything there you'd like to work on.
 
 Please ensure first that someone is not already working on an issue. If the issue seems stale or inactive and you want to take it over, get in touch with [noopkat](http://github.com/noopkat), the assigned person (check the comments on the issue for whom), or simply comment on the issue asking for status.
 
@@ -26,7 +26,7 @@ On average, Arduino boards cost between $15 and $50, depending on the tech inclu
 
 ## Code contribution workflow
 
-1. Fork this repository and clone the new fork locally. 
+1. Fork this repository and clone the new fork locally.
 
 2. Run `npm install` to install the dev dependencies.
 
@@ -45,4 +45,3 @@ On average, Arduino boards cost between $15 and $50, depending on the tech inclu
 9. Push up your new branch to your forked repo
 
 10. In GitHub, send a pull request to `avrgirl-arduino:master`. Include an explanation of what you did, and reference any issues if they are related.
-
