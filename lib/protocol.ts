@@ -2,7 +2,7 @@
  * Generic Protocol for other protocols to inherit from
  *
  */
-var Protocol = function(options) {
+const Protocol = function(options) {
   this.debug = options.debug;
   this.megaDebug = options.megaDebug;
 

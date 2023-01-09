@@ -3,10 +3,10 @@ var colors = require('colors');
 var fs = require('graceful-fs');
 var Serialport = require('serialport');
 var async = require('async');
-var Protocol = require('./protocol');
+const Protocol = require('./protocol');
 var util = require('util');
 
-var Avr109 = function(options) {
+var Avr109 = function(options: { protocol: () => any; }) {
   options.protocol = function() { return AVR109; };
 
   Protocol.call(this, options);
@@ -20,9 +20,9 @@ util.inherits(Avr109, Protocol);
  * @param {string, Buffer} hex - path of hex file for uploading, or Buffer of the hex data
  * @param {function} callback - function to run upon completion/error
  */
-Avr109.prototype._upload = function(file, callback) {
+Avr109.prototype._upload = function(file: any, callback: (arg0: unknown) => any) {
   var _this = this;
-  var data;
+  var data: any;
 
   try {
     if (typeof file === 'string') {
@@ -36,17 +36,17 @@ Avr109.prototype._upload = function(file, callback) {
     return callback(error);
   }
 
-  _this._reset(function(error) {
+  _this._reset(function(error: any) {
     if (error) { return callback(error); }
 
     _this.debug('reset complete.');
 
-    _this.connection._pollForOpen(function(error) {
+    _this.connection._pollForOpen(function(error: any) {
       if (error) { return callback(error); }
 
       _this.debug('connected');
 
-      _this._write(data, function(error) {
+      _this._write(data, function(error: any) {
         var color = (error ? colors.red : colors.green);
         _this.debug(color('flash complete.'));
         // this is a workaround, please see https://github.com/noopkat/avrgirl-arduino/issues/193 
@@ -64,7 +64,7 @@ Avr109.prototype._upload = function(file, callback) {
  * @param {buffer} data - hex buffer to write to the chip
  * @param {function} callback - function to run upon completion/error
  */
-Avr109.prototype._write = function(data, callback) {
+Avr109.prototype._write = function(data: { toString: () => any; }, callback: (arg0: any) => any) {
   var _this = this;
   
   var options = {
@@ -72,7 +72,7 @@ Avr109.prototype._write = function(data, callback) {
     debug: this.megaDebug
   };
 
-  _this.chip.init(_this.connection.serialPort, options, function(error, flasher) {
+  _this.chip.init(_this.connection.serialPort, options, function(error: any, flasher: { erase: { bind: (arg0: any) => any; }; program: { bind: (arg0: any, arg1: any) => any; }; verify: (arg0: any) => void; fuseCheck: { bind: (arg0: any) => any; }; }) {
     if (error) { return callback(error); }
 
     _this.debug('flashing, please wait...');
@@ -80,7 +80,7 @@ Avr109.prototype._write = function(data, callback) {
     async.series([
       flasher.erase.bind(flasher),
       flasher.program.bind(flasher, data.toString()),
-      function verify(done) {
+      function verify(done: () => void) {
         if (_this.board.disableVerify === true) {
           done();
         } else {
@@ -90,7 +90,7 @@ Avr109.prototype._write = function(data, callback) {
 
       flasher.fuseCheck.bind(flasher)
     ],
-    function(error) {
+    function(error: any) {
       return callback(error);
     });
   });
@@ -101,9 +101,9 @@ Avr109.prototype._write = function(data, callback) {
  *
  * @param {function} callback - function to run upon completion/error
  */
-Avr109.prototype._reset = function(callback) {
+Avr109.prototype._reset = function(callback: (arg0: null) => any) {
   var _this = this;
-  var conn;
+  var conn: { _setDTR: { bind: (arg0: any, arg1: boolean, arg2: number) => any; }; _pollForPort: { bind: (arg0: any) => any; }; };
 
   if (_this.board.manualReset) {
     return callback(null);
@@ -124,17 +124,17 @@ Avr109.prototype._reset = function(callback) {
     tempSerialPort.open.bind(tempSerialPort),
     conn._setDTR.bind(conn, false, 250)
   ],
-  function(error) {
+  function(error: any) {
     if (error) {
       return callback(error);
     }
     async.series([
       conn._pollForPort.bind(conn)
     ],
-    function(error) {
+    function(error: any) {
       return callback(error);
     });
   });
 };
 
-module.exports = Avr109;
+export default Avr109

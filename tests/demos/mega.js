@@ -1,4 +1,4 @@
-var Avrgirl = require('../../');
+var Avrgirl = require('../../avrgirl-arduino-node');
 var avrgirl = new Avrgirl({
   board: 'mega',
   debug: true
