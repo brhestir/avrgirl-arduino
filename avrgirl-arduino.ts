@@ -1,4 +1,4 @@
-var injectDependencies = function(boards, Connection, protocols) {
+var injectDependencies = function(boards: { [x: string]: { aliases: any; }; }, Connection: { new(arg0: any): any; prototype: { _listPorts: (arg0: any) => any; }; }, protocols: { [x: string]: () => void; }) {
   var EventEmitter = require('events');
   var util = require('util');
   var tools = require('./lib/tools');
@@ -7,7 +7,7 @@ var injectDependencies = function(boards, Connection, protocols) {
    *
    * @param {object} opts - options for consumer to pass in
    */
-  var AvrgirlArduino = function(opts) {
+  var AvrgirlArduino = function(opts: { debug?: any; megaDebug?: any; board?: any; port?: any; manualReset?: any; disableVerify?: any; }) {
     opts = opts || {};
 
     this.options = {
@@ -74,7 +74,7 @@ var injectDependencies = function(boards, Connection, protocols) {
    *
    * @param {function} callback - function to run upon completion/error
    */
-  AvrgirlArduino.prototype._validateBoard = function(callback) {
+  AvrgirlArduino.prototype._validateBoard = function(callback: (arg0: Error | null) => any) {
     if (typeof this.options.board !== 'object') {
       // cannot find a matching board in supported list
       return callback(new Error('"' + this.options.board + '" is not a supported board type.'));
@@ -100,15 +100,15 @@ var injectDependencies = function(boards, Connection, protocols) {
    * @param {string} file - path to hex file for uploading
    * @param {function} callback - function to run upon completion/error
    */
-  AvrgirlArduino.prototype.flash = function(file, callback) {
+  AvrgirlArduino.prototype.flash = function(file: any, callback: (arg0: any) => any) {
     var _this = this;
 
     // validate board properties first
-    _this._validateBoard(function(error) {
+    _this._validateBoard(function(error: any) {
       if (error) { return callback(error); }
 
       // set up serialport connection
-      _this.connection._init(function(error) {
+      _this.connection._init(function(error: any) {
         if (error) { return callback(error); }
 
         // upload file to board
@@ -124,7 +124,7 @@ var injectDependencies = function(boards, Connection, protocols) {
    * @param {function} callback - function to run upon completion/error
    */
   AvrgirlArduino.prototype.listPorts = AvrgirlArduino.listPorts =
-  AvrgirlArduino.prototype.list = AvrgirlArduino.list = function(callback) {
+  AvrgirlArduino.prototype.list = AvrgirlArduino.list = function(callback: any) {
     return Connection.prototype._listPorts(callback);
   };
 
