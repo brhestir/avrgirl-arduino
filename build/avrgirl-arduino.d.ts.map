@@ -1,1 +1,1 @@
-{"version":3,"file":"avrgirl-arduino.d.ts","sourceRoot":"","sources":["../avrgirl-arduino.ts"],"names":[],"mappings":"AAAA,QAAA,IAAI,kBAAkB,uEAmJrB,CAAC"}
+{"version":3,"file":"avrgirl-arduino.d.ts","sourceRoot":"","sources":["../avrgirl-arduino.ts"],"names":[],"mappings":"AAAA,QAAA,IAAI,kBAAkB;;iBAA8C,GAAG;;;eAAgC,GAAG,GAAG,GAAG;;2BAAkC,GAAG,KAAK,GAAG;;;uBAAwC,IAAI;aASnK;IAAE,KAAK,CAAC,EAAE,GAAG,CAAC;IAAC,SAAS,CAAC,EAAE,GAAG,CAAC;IAAC,KAAK,CAAC,EAAE,GAAG,CAAC;IAAC,IAAI,CAAC,EAAE,GAAG,CAAC;IAAC,WAAW,CAAC,EAAE,GAAG,CAAC;IAAC,aAAa,CAAC,EAAE,GAAG,CAAC;CAAE,SA0IvI,CAAC"}

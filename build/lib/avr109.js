@@ -1,10 +1,11 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var AVR109 = require('chip.avr.avr109');
 var colors = require('colors');
 var fs = require('graceful-fs');
 var Serialport = require('serialport');
 var async = require('async');
-var Protocol = require('./protocol');
+const Protocol = require('./protocol');
 var util = require('util');
 var Avr109 = function (options) {
     options.protocol = function () { return AVR109; };
@@ -120,5 +121,5 @@ Avr109.prototype._reset = function (callback) {
         });
     });
 };
-module.exports = Avr109;
+exports.default = Avr109;
 //# sourceMappingURL=avr109.js.map

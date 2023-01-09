@@ -2,5 +2,5 @@
  * Generic Protocol for other protocols to inherit from
  *
  */
-declare var Protocol: any;
+declare const Protocol: (options: any) => void;
 //# sourceMappingURL=protocol.d.ts.map

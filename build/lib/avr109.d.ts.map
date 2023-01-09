@@ -1,1 +1,1 @@
-{"version":3,"file":"avr109.d.ts","sourceRoot":"","sources":["../../lib/avr109.ts"],"names":[],"mappings":"AAAA,QAAA,IAAI,MAAM,KAA6B,CAAC;AACxC,QAAA,IAAI,MAAM,KAAoB,CAAC;AAC/B,QAAA,IAAI,EAAE,KAAyB,CAAC;AAChC,QAAA,IAAI,UAAU,KAAwB,CAAC;AACvC,QAAA,IAAI,KAAK,KAAmB,CAAC;AAC7B,QAAA,IAAI,QAAQ,KAAwB,CAAC;AACrC,QAAA,IAAI,IAAI,KAAkB,CAAC;AAE3B,QAAA,IAAI,MAAM,wBAIT,CAAC"}
+{"version":3,"file":"avr109.d.ts","sourceRoot":"","sources":["../../lib/avr109.ts"],"names":[],"mappings":"AAQA,QAAA,IAAI,MAAM,YAAqB;IAAE,QAAQ,EAAE,MAAM,GAAG,CAAC;CAAE,SAItD,CAAC;AA+HF,eAAe,MAAM,CAAA"}

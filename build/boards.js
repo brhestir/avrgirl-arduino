@@ -1,5 +1,6 @@
 "use strict";
-var boards = [
+Object.defineProperty(exports, "__esModule", { value: true });
+const boards = [
     {
         name: 'uno',
         baud: 115200,
@@ -289,20 +290,21 @@ var boards = [
  * Generate an object with board name keys for faster lookup
  * @return {object} byBoardName
  */
-function boardLookupTable() {
-    var byBoard = {};
-    for (var i = 0; i < boards.length; i++) {
-        var currentBoard = boards[i];
+const boardLookupTable = () => {
+    const byBoard = {};
+    for (let i = 0; i < boards.length; i++) {
+        const currentBoard = boards[i];
         byBoard[currentBoard.name] = currentBoard;
-        var aliases = currentBoard.aliases;
+        const aliases = currentBoard.aliases;
         if (Array.isArray(aliases)) {
-            for (var j = 0; j < aliases.length; j++) {
-                var currentAlias = aliases[j];
+            for (let j = 0; j < aliases.length; j++) {
+                const currentAlias = aliases[j];
                 byBoard[currentAlias] = currentBoard;
             }
         }
     }
     return byBoard;
-}
-module.exports = boardLookupTable();
+};
+const boardLookupTableReturn = boardLookupTable();
+exports.default = boardLookupTableReturn;
 //# sourceMappingURL=boards.js.map

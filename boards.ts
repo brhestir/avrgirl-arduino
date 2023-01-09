@@ -1,4 +1,4 @@
-type BoardsType = {
+export type BoardsType = {
   name: string;
   baud: number;
   signature: Buffer;
@@ -18,6 +18,7 @@ type BoardsType = {
   protocol: string;
   aliases?: string[];
 };
+
 const boards: Array<BoardsType> = [
   {
     name: 'uno',
@@ -306,7 +307,7 @@ const boards: Array<BoardsType> = [
   },
 ];
 
-interface ByBoardType {
+export interface ByBoardType {
   [x: string]: BoardsType;
 } 
 
